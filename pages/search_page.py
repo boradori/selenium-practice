@@ -12,11 +12,11 @@ TITLE_FIELD = (By.ID, 'text-input-what')
 class SearchPage(BasePage):
     @property
     def find_jobs_button(self):
-        return self.wait.until(ec.element_to_be_clickable(self.driver.find_element(*FIND_JOBS_BUTTON)))
+        return self.wait.until(ec.element_to_be_clickable(FIND_JOBS_BUTTON))
 
     @property
     def location_field(self):
-        return self.wait.until(lambda dr: dr.find_element(*LOCATION_FIELD))
+        return self.wait.until(ec.visibility_of_element_located(LOCATION_FIELD))
 
     @property
     def title_field(self):
