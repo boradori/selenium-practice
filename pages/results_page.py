@@ -54,6 +54,7 @@ class ResultsPage(BasePage):
 
     def get_bad_query_header_text(self):
         logging.info('Getting bad query header text.')
+        sleep(2)
         seconds_waited = 0
 
         while seconds_waited < 10:

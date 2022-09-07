@@ -53,7 +53,7 @@ class TestSearch:
 
         for title in actual_titles:
             logging.info(f'Actual title: {title}')
-            assert 'quality' in title.lower() or 'test' in title.lower() or 'QA' in title or 'SDET' in title
+            assert 'quality' in title.lower() or 'test' in title.lower() or 'QA' in title or 'SDET' in title or 'automation' in title.lower()
 
     def test_search_results_contain_correct_location(self):
         logging.info('Verifying that the results contain the correct company locations.')

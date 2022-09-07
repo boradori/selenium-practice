@@ -43,12 +43,12 @@ class SearchPage(BasePage):
         self.driver.execute_script('arguments[0].click();', self.google_sign_in_close_button)
 
     def enter_location(self, location):
-        logging.info(f'Entering "{location}".')
+        logging.info(f'Entering "{location}" in location field.')
         self._clear_input(element=self.location_field)
         self.location_field.send_keys(location)
 
     def enter_title(self, title):
-        logging.info(f'Entering "{title}".')
+        logging.info(f'Entering "{title}" in title field.')
         self._clear_input(element=self.title_field)
         self.title_field.send_keys(title)
 
