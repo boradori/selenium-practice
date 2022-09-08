@@ -3,10 +3,11 @@ import logging
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.common.keys import Keys
 
 
 CREDENTIAL_PICKER_IFRAME = (By.XPATH, '//iframe[@title="Sign in with Google Dialog"]')
-FIND_JOBS_BUTTON = (By.XPATH, '//button[@type="submit"]')
+FIND_JOBS_BUTTON = (By.XPATH, '//button[@class="yosegi-InlineWhatWhere-primaryButton"]')
 GOOGLE_SIGN_IN_CLOSE_BUTTON = (By.ID, 'close')
 LOCATION_FIELD = (By.ID, 'text-input-where')
 SIGN_IN_BUTTON = (By.XPATH, '(//a[contains(@href, "https://secure.indeed.com/account/login")])[1]')
@@ -24,7 +25,7 @@ class SearchPage(BasePage):
 
     @property
     def location_field(self):
-        return self.wait.until(ec.visibility_of_element_located(LOCATION_FIELD))
+        return self.wait.until(ec.presence_of_element_located(LOCATION_FIELD))
 
     @property
     def sign_in_button(self):
@@ -32,7 +33,7 @@ class SearchPage(BasePage):
 
     @property
     def title_field(self):
-        return self.wait.until(lambda dr: dr.find_element(*TITLE_FIELD))
+        return self.wait.until(ec.presence_of_element_located(TITLE_FIELD))
 
     def click_sign_in_button(self):
         logging.info('Clicking Sign in button.')
@@ -49,6 +50,7 @@ class SearchPage(BasePage):
 
     def enter_title(self, title):
         logging.info(f'Entering "{title}" in title field.')
+        self.wait.until(ec.presence_of_element_located(TITLE_FIELD))
         self._clear_input(element=self.title_field)
         self.title_field.send_keys(title)
 
@@ -60,11 +62,15 @@ class SearchPage(BasePage):
         logging.info('Submitting job search.')
         self.find_jobs_button.click()
 
+    def submit_job_search_by_pressing_enter(self):
+        logging.info('Submitting job search.')
+        self.title_field.send_keys(Keys.ENTER)
+
     def switch_to_default(self):
         logging.info('Switching to default.')
         self.driver.switch_to.default_content()
 
     def switch_to_iframe(self):
-        logging.info('Switching to iframe.')
+        logging.info('Switching to "Google Sign in" iframe.')
         iframe = self.wait.until(ec.visibility_of_element_located(CREDENTIAL_PICKER_IFRAME))
         self.driver.switch_to.frame(iframe)

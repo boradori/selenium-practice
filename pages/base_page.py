@@ -17,3 +17,9 @@ class BasePage:
 
         while len(element.get_attribute('value')) > 0:
             element.send_keys(Keys.BACKSPACE)
+
+    def _scroll_to_bottom_of_page(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    def _scroll_to_element(self, element):
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)

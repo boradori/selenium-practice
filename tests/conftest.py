@@ -16,6 +16,8 @@ def class_setup(request):
         driver = webdriver.Firefox()
     elif browser == "ie":
         driver = webdriver.Ie()
+    elif browser == 'edge':
+        driver = webdriver.Edge()
     elif browser == "safari":
         driver = webdriver.Safari()
     else:

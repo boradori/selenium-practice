@@ -6,20 +6,32 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 
-BAD_QUERY_HEADER = (By.XPATH, '//div[@class="bad_query"]/h1')
+ACTIVATE_BUTTON = (By.ID, 'DesktopSERPJobAlertActivateButton')
+BAD_QUERY_HEADER_1 = (By.CSS_SELECTOR, '.jobsearch-NoResult-messageHeader')
+BAD_QUERY_HEADER_2 = (By.CSS_SELECTOR, '.bad_query h1')
 CLEAR_SEARCHES_BUTTON = (By.XPATH, '//a[@title="Remove all previous searches"]')
 COMPANY_LOCATIONS = (By.XPATH, '//div[contains(@class, "slider_container")]//div[@class="companyLocation"]')
+JOB_DESCRIPTION_IFRAME = (By.ID, 'vjs-container-iframe')
 JOB_RESULTS = (By.CLASS_NAME, 'slider_container')
 JOB_TITLES = (By.XPATH, '//div[contains(@class, "slider_container")]//h2[contains(@class, "jobTitle")]//span')
 MY_RECENT_SEARCHES = (By.XPATH, '//h2[normalize-space()="My recent searches"]')
+NEXT_PAGE = (By.XPATH, "//a[@aria-label='Next Page']")
 POPOVER_CLOSE_BUTTON = (By.XPATH, '//div[@id="popover-x"]')
-RECENT_SEARCHES = (By.XPATH, '//div[@id="recentsearches"]/ul/li/a')
+RECENT_SEARCHES_1 = (By.CSS_SELECTOR, '.jobsearch-DesktopRecentSearches ul li a')
+RECENT_SEARCHES_2 = (By.CSS_SELECTOR, '#recentsearches ul li a')
 
 
 def header_text_by_title_and_location(title, location):
     return (
         By.XPATH,
         f'//h1[normalize-space()="{title} jobs in {location}"]'
+    )
+
+
+def pagination_button_by_page_number(page_number):
+    return (
+        By.XPATH,
+        f'//*[@aria-label="{page_number}"]'
     )
 
 
@@ -44,27 +56,34 @@ class ResultsPage(BasePage):
     def popover_close_button(self):
         return self.driver.find_element(*POPOVER_CLOSE_BUTTON)
 
-    @property
-    def recent_searches(self):
-        return self.wait.until(ec.presence_of_all_elements_located(RECENT_SEARCHES))
-
     def click_clear_searches_button(self):
         logging.info('Clicking "clear searches" button.')
         self.clear_searches_button.click()
 
-    def get_bad_query_header_text(self):
-        logging.info('Getting bad query header text.')
-        sleep(2)
+    def click_pagination_by_page_number(self, page_number):
+        logging.info(f'Clicking page number: {page_number}.')
         seconds_waited = 0
 
         while seconds_waited < 10:
             try:
-                return self.driver.find_element(*BAD_QUERY_HEADER).text
+                element = self.driver.find_element(*pagination_button_by_page_number(page_number))
+                self._scroll_to_element(element)
+                element.click()
+                break
             except NoSuchElementException:
                 sleep(1)
                 seconds_waited += 1
 
-        return None
+        sleep(2)
+
+    def get_bad_query_header_text(self):
+        logging.info('Getting bad query header text.')
+        try:
+            element = self.driver.find_element(*BAD_QUERY_HEADER_1)
+        except NoSuchElementException:
+            element = self.driver.find_element(*BAD_QUERY_HEADER_2)
+
+        return element.text
 
     def get_company_locations(self):
         logging.info('Getting company locations.')
@@ -81,17 +100,23 @@ class ResultsPage(BasePage):
 
     def get_recent_searches(self):
         logging.info('Getting recent searches.')
-        seconds_waited = 0
+        try:
+            self.driver.find_element(By.CLASS_NAME, 'jobsearch-DesktopRecentSearches')
+            elements = self.driver.find_elements(*RECENT_SEARCHES_1)
+        except NoSuchElementException:
+            self.driver.find_element(By.ID, 'recentsearches')
+            elements = self.driver.find_elements(*RECENT_SEARCHES_2)
 
-        while seconds_waited < 10:
-            try:
-                return [' '.join(element.text.split()).strip() for element in
-                        self.driver.find_elements(*RECENT_SEARCHES)]
-            except NoSuchElementException:
-                sleep(1)
-                seconds_waited += 1
+        return [' '.join(element.text.split()).strip() for element in elements]
 
-        return []
+    def switch_to_default(self):
+        logging.info('Switching to default.')
+        self.driver.switch_to.default_content()
+
+    def switch_to_iframe(self):
+        logging.info('Switching to "Job Description" iframe.')
+        iframe = self.wait.until(ec.visibility_of_element_located(JOB_DESCRIPTION_IFRAME))
+        self.driver.switch_to.frame(iframe)
 
     def wait_for_job_results_to_display(self):
         logging.info('Waiting for job results to fully display.')
