@@ -2097,3 +2097,90 @@ DevTools listening on ws://localhost:8953/devtools/browser/04470119-0ff3-4bb0-96
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
 1662639540639	Marionette	INFO	Stopped listening on port 8959
+1662640197013	geckodriver	INFO	Listening on 127.0.0.1:9767
+1662640200115	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "9768" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileOs3ndm"
+1662640200426	Marionette	INFO	Marionette enabled
+1662640200430	Marionette	INFO	Listening on port 9775
+WebDriver BiDi listening on ws://localhost:9768
+1662640200681	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileOs3ndm\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:9768/devtools/browser/c60829b4-40da-4e11-8615-e16814f70151
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640253003	Marionette	INFO	Stopped listening on port 9775
+1662640314517	geckodriver	INFO	Listening on 127.0.0.1:9922
+1662640317566	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "9923" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofilevq1vmJ"
+1662640317956	Marionette	INFO	Marionette enabled
+1662640317962	Marionette	INFO	Listening on port 9930
+WebDriver BiDi listening on ws://localhost:9923
+1662640318250	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofilevq1vmJ\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:9923/devtools/browser/63dc9e89-5857-43a2-857c-7d4c01d06189
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640372751	Marionette	INFO	Stopped listening on port 9930
+1662640418912	geckodriver	INFO	Listening on 127.0.0.1:10072
+1662640422006	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10073" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileRZ4YAc"
+1662640422429	Marionette	INFO	Marionette enabled
+1662640422435	Marionette	INFO	Listening on port 10079
+WebDriver BiDi listening on ws://localhost:10073
+1662640422583	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileRZ4YAc\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:10073/devtools/browser/f3291ec3-09f3-45fa-afc6-292b3cac16c2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640469084	geckodriver	INFO	Listening on 127.0.0.1:10190
+1662640472129	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10191" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofiles6qIFu"
+1662640472544	Marionette	INFO	Marionette enabled
+1662640472550	Marionette	INFO	Listening on port 10198
+WebDriver BiDi listening on ws://localhost:10191
+1662640472797	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofiles6qIFu\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:10191/devtools/browser/491551f8-6ac5-449b-aab4-9d30ff34d1f3
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640515263	Marionette	INFO	Stopped listening on port 10198
+1662640543877	geckodriver	INFO	Listening on 127.0.0.1:10312
+1662640546968	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10313" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofilePKlGgF"
+1662640547368	Marionette	INFO	Marionette enabled
+1662640547373	Marionette	INFO	Listening on port 10319
+WebDriver BiDi listening on ws://localhost:10313
+1662640547635	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofilePKlGgF\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:10313/devtools/browser/41d100ce-e9b8-4877-bb05-01c59cd9ae8f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640606568	Marionette	INFO	Stopped listening on port 10319
+1662640610888	geckodriver	INFO	Listening on 127.0.0.1:10461
+1662640613957	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10462" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofile2GfsY8"
+1662640614339	Marionette	INFO	Marionette enabled
+1662640614345	Marionette	INFO	Listening on port 10469
+WebDriver BiDi listening on ws://localhost:10462
+1662640614658	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofile2GfsY8\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:10462/devtools/browser/1ab201ca-7a22-4828-986d-b93288e4fe80
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640656784	Marionette	INFO	Stopped listening on port 10469
+1662640671082	geckodriver	INFO	Listening on 127.0.0.1:10579
+1662640674155	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10580" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofilelSOlLC"
+1662640674533	Marionette	INFO	Marionette enabled
+1662640674539	Marionette	INFO	Listening on port 10587
+WebDriver BiDi listening on ws://localhost:10580
+1662640674851	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofilelSOlLC\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:10580/devtools/browser/b858853a-b924-467c-9b1e-d22e1e4f1cc9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640716848	Marionette	INFO	Stopped listening on port 10587
+1662640724223	geckodriver	INFO	Listening on 127.0.0.1:10700
+1662640727303	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "10701" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileROJBkz"
+1662640727685	Marionette	INFO	Marionette enabled
+1662640727691	Marionette	INFO	Listening on port 10707
+WebDriver BiDi listening on ws://localhost:10701
+1662640728005	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileROJBkz\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:10701/devtools/browser/90a6f0d0-549c-49c7-bb4d-1337989c702a
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662640769998	Marionette	INFO	Stopped listening on port 10707

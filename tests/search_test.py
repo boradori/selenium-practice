@@ -68,19 +68,21 @@ class TestSearch:
     def test_user_can_paginate(self):
         self.results_page.click_pagination_by_page_number('2')
 
-        try:
-            close_button = self.results_page.popover_close_button
-            close_button.click()
-            logging.info("Pop up is closed.")
-        except NoSuchElementException:
-            logging.info("Pop up did not show up.")
-
         logging.info('Verifying that there are correct number of results.')
         expected_number = 15
         actual_number = len(self.results_page.job_results)
         logging.info(f'Expected number: {expected_number}')
         logging.info(f'Actual number:   {actual_number}')
         assert expected_number == actual_number
+
+        try:
+            close_button = self.results_page.popover_close_button
+            close_button.click()
+            logging.info("Pop up is closed.")
+            logging.info("Refreshing the page.")
+            self.driver.refresh()
+        except NoSuchElementException:
+            logging.info("Pop up did not show up.")
 
         logging.info('Verifying that the results contain the correct job titles.')
         actual_titles = self.results_page.get_job_titles()
