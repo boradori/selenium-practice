@@ -28,8 +28,6 @@ class TestSearch:
         self.search_page.enter_location(location)
         self.search_page.submit_job_search_by_pressing_enter()
 
-        self.results_page.wait_for_placeholder_to_disappear()
-
         logging.info('Verifying that the results page displays the correct page number.')
         expected_page_number = 'Page 1'
         actual_page_number = self.results_page.get_page_number()
@@ -53,7 +51,7 @@ class TestSearch:
 
         logging.info('Verifying that there are correct number of results.')
         expected_number = 15
-        actual_number = len(self.results_page.job_results)
+        actual_number = len(self.results_page.job_cards)
         logging.info(f'Expected number: {expected_number}')
         logging.info(f'Actual number:   {actual_number}')
         assert expected_number == actual_number
@@ -90,7 +88,7 @@ class TestSearch:
 
             logging.info('Verifying that there are correct number of results.')
             expected_number = 15
-            actual_number = len(self.results_page.job_results)
+            actual_number = len(self.results_page.job_cards)
             logging.info(f'Expected number of results: {expected_number}')
             logging.info(f'Actual number of results:   {actual_number}')
             assert expected_number == actual_number
@@ -101,7 +99,6 @@ class TestSearch:
                 logging.info("Pop up is closed.")
                 logging.info("Refreshing the page.")
                 self.driver.refresh()
-                self.results_page.wait_for_placeholder_to_disappear()
             except NoSuchElementException:
                 logging.info("Pop up did not show up.")
 

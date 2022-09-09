@@ -11,8 +11,8 @@ BAD_QUERY_HEADER_1 = (By.CSS_SELECTOR, '.jobsearch-NoResult-messageHeader')
 BAD_QUERY_HEADER_2 = (By.CSS_SELECTOR, '.bad_query h1')
 CLEAR_SEARCHES_BUTTON = (By.XPATH, '//a[@title="Remove all previous searches"]')
 COMPANY_LOCATIONS = (By.XPATH, '//div[contains(@class, "slider_container")]//div[@class="companyLocation"]')
+JOB_CARDS = (By.CLASS_NAME, 'slider_container')
 JOB_DESCRIPTION_IFRAME = (By.ID, 'vjs-container-iframe')
-JOB_RESULTS = (By.CLASS_NAME, 'slider_container')
 JOB_TITLES = (By.XPATH, '//div[contains(@class, "slider_container")]//h2[contains(@class, "jobTitle")]//span')
 MY_RECENT_SEARCHES = (By.XPATH, '//h2[normalize-space()="My recent searches"]')
 NEXT_PAGE = (By.XPATH, '//a[contains(@aria-label,"Next")]')
@@ -48,8 +48,8 @@ class ResultsPage(BasePage):
         return self.wait.until(ec.presence_of_all_elements_located(COMPANY_LOCATIONS))
 
     @property
-    def job_results(self):
-        return self.wait.until(ec.presence_of_all_elements_located(JOB_RESULTS))
+    def job_cards(self):
+        return self.wait.until(ec.presence_of_all_elements_located(JOB_CARDS))
 
     @property
     def job_titles(self):
@@ -128,12 +128,13 @@ class ResultsPage(BasePage):
         iframe = self.wait.until(ec.visibility_of_element_located(JOB_DESCRIPTION_IFRAME))
         self.driver.switch_to.frame(iframe)
 
-    def wait_for_job_results_to_display(self):
-        logging.info('Waiting for job results to fully display.')
-        self.wait.until(ec.presence_of_all_elements_located(JOB_RESULTS))
+    def wait_for_job_cards_to_display(self):
+        logging.info('Waiting for "Job cards" to fully display.')
+        self.wait.until(ec.presence_of_all_elements_located(JOB_CARDS))
 
     def wait_for_placeholder_to_disappear(self):
         logging.info('Waiting for "Placeholder container" to disappear.')
+        sleep(1)
         self.wait.until(ec.invisibility_of_element_located(PLACEHOLDER_CONTAINER))
 
     def wait_for_url_to_change(self, url):

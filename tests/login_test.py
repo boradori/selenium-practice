@@ -20,7 +20,7 @@ class TestLogin:
             assert self.login_page.get_header_text() == 'Ready to take the next step?'
         yield
 
-    # @pytest.mark.skip(reason="hCaptcha")
+    @pytest.mark.skip(reason="hCaptcha")
     def test_invalid_login_with_invalid_password(self):
         invalid_username = 'sepal31129@vasqa.com'
         password = 'qpalqpal1'
@@ -38,7 +38,7 @@ class TestLogin:
         logging.info(f'Actual message:   {actual_message}')
         assert expected_message == actual_message
 
-    # @pytest.mark.skip(reason="hCaptcha")
+    @pytest.mark.skip(reason="hCaptcha")
     def test_valid_login_with_valid_email_address_and_password(self):
         valid_username = 'sepal31129@vasqa.com'
         password = 'qpalqpal'
