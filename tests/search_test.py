@@ -28,6 +28,15 @@ class TestSearch:
         self.search_page.enter_location(location)
         self.search_page.submit_job_search_by_pressing_enter()
 
+        self.results_page.wait_for_placeholder_to_disappear()
+
+        logging.info('Verifying that the results page displays the correct page number.')
+        expected_page_number = 'Page 1'
+        actual_page_number = self.results_page.get_page_number()
+        logging.info(f'Expected page number: {expected_page_number}')
+        logging.info(f'Actual page number:   {actual_page_number}')
+        assert expected_page_number in actual_page_number
+
         logging.info('Verifying that the results page header displays the correct title and location.')
         expected_header = f'{title} jobs in {location}'
         actual_header = self.results_page.get_header_text(title, location)
@@ -65,38 +74,50 @@ class TestSearch:
             logging.info(f'Actual location: {location}')
             assert 'WA' in location or 'Washington State'.lower() in location.lower()
 
+    # def test_user_can_sort_by_date(self):
+
     def test_user_can_paginate(self):
-        self.results_page.click_pagination_by_page_number('2')
+        for i in range(1, 5):
+            page_number = i + 1
+            self.results_page.click_pagination_by_page_number(f'{page_number}')
 
-        logging.info('Verifying that there are correct number of results.')
-        expected_number = 15
-        actual_number = len(self.results_page.job_results)
-        logging.info(f'Expected number: {expected_number}')
-        logging.info(f'Actual number:   {actual_number}')
-        assert expected_number == actual_number
+            logging.info('Verifying that the results page displays the correct page number.')
+            expected_page_number = f'Page {page_number}'
+            actual_page_number = self.results_page.get_page_number()
+            logging.info(f'Expected page number: {expected_page_number}')
+            logging.info(f'Actual page number:   {actual_page_number}')
+            assert expected_page_number in actual_page_number
 
-        try:
-            close_button = self.results_page.popover_close_button
-            close_button.click()
-            logging.info("Pop up is closed.")
-            logging.info("Refreshing the page.")
-            self.driver.refresh()
-        except NoSuchElementException:
-            logging.info("Pop up did not show up.")
+            logging.info('Verifying that there are correct number of results.')
+            expected_number = 15
+            actual_number = len(self.results_page.job_results)
+            logging.info(f'Expected number of results: {expected_number}')
+            logging.info(f'Actual number of results:   {actual_number}')
+            assert expected_number == actual_number
 
-        logging.info('Verifying that the results contain the correct job titles.')
-        actual_titles = self.results_page.get_job_titles()
+            try:
+                close_button = self.results_page.popover_close_button
+                close_button.click()
+                logging.info("Pop up is closed.")
+                logging.info("Refreshing the page.")
+                self.driver.refresh()
+                self.results_page.wait_for_placeholder_to_disappear()
+            except NoSuchElementException:
+                logging.info("Pop up did not show up.")
 
-        for title in actual_titles:
-            logging.info(f'Actual title: {title}')
-            assert 'quality' in title.lower() or 'test' in title.lower() or 'qa' in title.lower() or 'sdet' in title.lower() or 'automation' in title.lower()
+            logging.info('Verifying that the results contain the correct job titles.')
+            actual_titles = self.results_page.get_job_titles()
 
-        logging.info('Verifying that the results contain the correct company locations.')
-        actual_locations = self.results_page.get_company_locations()
+            for title in actual_titles:
+                logging.info(f'Actual title: {title}')
+                assert 'quality' in title.lower() or 'test' in title.lower() or 'qa' in title.lower() or 'sdet' in title.lower() or 'automation' in title.lower()
 
-        for location in actual_locations:
-            logging.info(f'Actual location: {location}')
-            assert 'WA' in location or 'Washington State'.lower() in location.lower()
+            logging.info('Verifying that the results contain the correct company locations.')
+            actual_locations = self.results_page.get_company_locations()
+
+            for location in actual_locations:
+                logging.info(f'Actual location: {location}')
+                assert 'WA' in location or 'Washington State'.lower() in location.lower()
 
     def test_search_by_invalid_title(self):
         title = 'asdfasdf'

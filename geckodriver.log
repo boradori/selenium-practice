@@ -2184,3 +2184,81 @@ DevTools listening on ws://localhost:10701/devtools/browser/90a6f0d0-549c-49c7-b
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
 1662640769998	Marionette	INFO	Stopped listening on port 10707
+1662667466500	geckodriver	INFO	Listening on 127.0.0.1:29392
+1662667469572	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "29393" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileZBKCcw"
+1662667469999	Marionette	INFO	Marionette enabled
+1662667470005	Marionette	INFO	Listening on port 29398
+WebDriver BiDi listening on ws://localhost:29393
+1662667470157	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileZBKCcw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:29393/devtools/browser/b6c03f4b-62fc-48ae-b044-648b84844527
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662667512439	Marionette	INFO	Stopped listening on port 29398
+1662685347509	geckodriver	INFO	Listening on 127.0.0.1:38885
+1662685350587	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "38886" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileBeCdjH"
+1662685350853	Marionette	INFO	Marionette enabled
+1662685350857	Marionette	INFO	Listening on port 38895
+WebDriver BiDi listening on ws://localhost:38886
+1662685351207	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileBeCdjH\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:38886/devtools/browser/4c8ac6da-9587-49c0-8c68-1100ffd93c47
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://c03.s3.indeed.com/mosaic-provider-jobcards/dist/83fa0e26eedab498e98f/js/ApolloClient.js, line 2: Error: NetworkError when attempting to fetch resource.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662685415921	Marionette	INFO	Stopped listening on port 38895
+1662685608160	geckodriver	INFO	Listening on 127.0.0.1:44705
+1662685611229	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "44706" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileyYb5pt"
+1662685611476	Marionette	INFO	Marionette enabled
+1662685611479	Marionette	INFO	Listening on port 44713
+WebDriver BiDi listening on ws://localhost:44706
+1662685611801	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileyYb5pt\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:44706/devtools/browser/5736622e-85f0-4f66-bf3b-53177d5f85a0
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662685673692	Marionette	INFO	Stopped listening on port 44713
+1662687086623	geckodriver	INFO	Listening on 127.0.0.1:16712
+1662687089701	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "16713" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileFyTThA"
+1662687090465	Marionette	INFO	Marionette enabled
+1662687090472	Marionette	INFO	Listening on port 16718
+WebDriver BiDi listening on ws://localhost:16713
+1662687090843	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileFyTThA\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:16713/devtools/browser/94319b9c-899c-41b5-a14b-9e59445ea111
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662687143063	Marionette	INFO	Stopped listening on port 16718
+1662688696643	geckodriver	INFO	Listening on 127.0.0.1:42392
+1662688699754	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "42393" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileYTqWf8"
+1662688700474	Marionette	INFO	Marionette enabled
+1662688700482	Marionette	INFO	Listening on port 42399
+WebDriver BiDi listening on ws://localhost:42393
+1662688700979	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileYTqWf8\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42393/devtools/browser/4ecff9e5-d151-4256-abf1-3110c85a667b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+1662688774036	Marionette	INFO	Stopped listening on port 42399
+1662689257220	geckodriver	INFO	Listening on 127.0.0.1:47650
+1662689260300	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "47651" "-no-remote" "-profile" "C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileQ9Ly6g"
+1662689260972	Marionette	INFO	Marionette enabled
+1662689260980	Marionette	INFO	Listening on port 47658
+WebDriver BiDi listening on ws://localhost:47651
+1662689261731	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\young\\AppData\\Local\\Temp\\rust_mozprofileQ9Ly6g\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:47651/devtools/browser/1e5674ec-8cae-4f0b-971c-cb92e30c95ce
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.indeed.com."
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1662689380403	Marionette	INFO	Stopped listening on port 47658

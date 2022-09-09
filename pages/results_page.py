@@ -15,7 +15,10 @@ JOB_DESCRIPTION_IFRAME = (By.ID, 'vjs-container-iframe')
 JOB_RESULTS = (By.CLASS_NAME, 'slider_container')
 JOB_TITLES = (By.XPATH, '//div[contains(@class, "slider_container")]//h2[contains(@class, "jobTitle")]//span')
 MY_RECENT_SEARCHES = (By.XPATH, '//h2[normalize-space()="My recent searches"]')
-NEXT_PAGE = (By.XPATH, "//a[@aria-label='Next Page']")
+NEXT_PAGE = (By.XPATH, '//a[contains(@aria-label,"Next")]')
+PAGE_COUNT_1 = (By.ID, 'searchCountPages')
+PAGE_COUNT_2 = (By.CSS_SELECTOR, '.jobsearch-JobCountAndSortPane-jobCount span')
+PLACEHOLDER_CONTAINER = (By.ID, 'PlaceholderContainer')
 POPOVER_CLOSE_BUTTON = (By.XPATH, '//div[@id="popover-x"]')
 RECENT_SEARCHES_1 = (By.CSS_SELECTOR, '.jobsearch-DesktopRecentSearches ul li a')
 RECENT_SEARCHES_2 = (By.CSS_SELECTOR, '#recentsearches ul li a')
@@ -98,6 +101,13 @@ class ResultsPage(BasePage):
         logging.info('Getting job titles.')
         return [' '.join(element.text.split()).strip() for element in self.job_titles]
 
+    def get_page_number(self):
+        logging.info('Getting the current page number.')
+        try:
+            return self.driver.find_element(*PAGE_COUNT_1).get_attribute('innerText')
+        except NoSuchElementException:
+            return self.driver.find_element(*PAGE_COUNT_2).text
+
     def get_recent_searches(self):
         logging.info('Getting recent searches.')
         try:
@@ -121,6 +131,10 @@ class ResultsPage(BasePage):
     def wait_for_job_results_to_display(self):
         logging.info('Waiting for job results to fully display.')
         self.wait.until(ec.presence_of_all_elements_located(JOB_RESULTS))
+
+    def wait_for_placeholder_to_disappear(self):
+        logging.info('Waiting for "Placeholder container" to disappear.')
+        self.wait.until(ec.invisibility_of_element_located(PLACEHOLDER_CONTAINER))
 
     def wait_for_url_to_change(self, url):
         logging.info('Waiting for URL to change.')
