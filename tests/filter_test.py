@@ -44,7 +44,7 @@ class TestFilter:
             close_button.click()
             logging.info('Pop up is closed.')
         except NoSuchElementException:
-            logging.info('Pop up did not show up.')
+            logging.info('Pop up is not displayed.')
 
         try:
             self.driver.find_element('id', 'vjs-container-iframe')
@@ -55,8 +55,8 @@ class TestFilter:
                 self.jd.switch_to_iframe()
 
                 logging.info('Verifying that the job description is posted in last 24 hours.')
-                expected_post_date = ['Posted Today', 'Posted Just posted', 'Posted 1 day ago']
-                actual_post_date = self.jd.posted_date
+                expected_post_date = ['posted today', 'posted just posted', 'posted 1 day ago']
+                actual_post_date = self.jd.posted_date.lower()
                 logging.info(f'Expected post dates: {expected_post_date}')
                 logging.info(f'Actual post date:    {actual_post_date}')
                 assert actual_post_date in expected_post_date
@@ -69,8 +69,8 @@ class TestFilter:
                 job_card.click()
 
                 logging.info('Verifying that the job description is posted in last 24 hours.')
-                expected_post_date = ['Posted Today', 'Posted Just posted', 'Posted 1 day ago']
-                actual_post_date = self.jd.posted_date
+                expected_post_date = ['posted today', 'posted just posted', 'posted 1 day ago']
+                actual_post_date = self.jd.posted_date.lower()
                 logging.info(f'Expected post dates: {expected_post_date}')
                 logging.info(f'Actual post date:    {actual_post_date}')
                 assert actual_post_date in expected_post_date

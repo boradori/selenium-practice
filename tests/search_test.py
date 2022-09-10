@@ -45,9 +45,9 @@ class TestSearch:
         try:
             close_button = self.results_page.popover_close_button
             close_button.click()
-            logging.info("Pop up is closed.")
+            logging.info('Pop up is closed.')
         except NoSuchElementException:
-            logging.info("Pop up did not show up.")
+            logging.info('Pop up is not displayed.')
 
         logging.info('Verifying that there are correct number of results.')
         expected_number = 15
@@ -96,11 +96,11 @@ class TestSearch:
             try:
                 close_button = self.results_page.popover_close_button
                 close_button.click()
-                logging.info("Pop up is closed.")
-                logging.info("Refreshing the page.")
+                logging.info('Pop up is closed.')
+                logging.info('Refreshing the page.')
                 self.driver.refresh()
             except NoSuchElementException:
-                logging.info("Pop up did not show up.")
+                logging.info('Pop up is not displayed.')
 
             logging.info('Verifying that the results contain the correct job titles.')
             actual_titles = self.results_page.get_job_titles()
@@ -128,9 +128,9 @@ class TestSearch:
         try:
             close_button = self.results_page.popover_close_button
             close_button.click()
-            logging.info("Pop up is closed.")
+            logging.info('Pop up is closed.')
         except NoSuchElementException:
-            logging.info("Pop up did not show up.")
+            logging.info('Pop up is not displayed.')
 
         logging.info('Verifying that the bad query header text contains the job title (search term).')
         expected_bad_query_header_text = f'The search {title} jobs in {location} did not match any jobs.'
