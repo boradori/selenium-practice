@@ -17,7 +17,7 @@ JOB_TITLES = (By.XPATH, '//div[contains(@class, "slider_container")]//h2[contain
 MY_RECENT_SEARCHES = (By.XPATH, '//h2[normalize-space()="My recent searches"]')
 NEXT_PAGE = (By.XPATH, '//a[contains(@aria-label,"Next")]')
 PAGE_COUNT_1 = (By.ID, 'searchCountPages')
-PAGE_COUNT_2 = (By.CSS_SELECTOR, '.jobsearch-JobCountAndSortPane-jobCount span')
+PAGE_COUNT_2 = (By.XPATH, '//div[@class="jobsearch-JobCountAndSortPane-jobCount"]/span[1]')
 PLACEHOLDER_CONTAINER = (By.ID, 'PlaceholderContainer')
 POPOVER_CLOSE_BUTTON = (By.XPATH, '//div[@id="popover-x"]')
 RECENT_SEARCHES_1 = (By.CSS_SELECTOR, '.jobsearch-DesktopRecentSearches ul li a')
@@ -97,16 +97,16 @@ class ResultsPage(BasePage):
         return self.wait.until(
             ec.visibility_of_element_located(header_text_by_title_and_location(title, location))).text
 
-    def get_job_titles(self):
-        logging.info('Getting job titles.')
-        return [' '.join(element.text.split()).strip() for element in self.job_titles]
-
-    def get_page_number(self):
-        logging.info('Getting the current page number.')
+    def get_job_count(self):
+        logging.info('Getting job count.')
         try:
             return self.driver.find_element(*PAGE_COUNT_1).get_attribute('innerText')
         except NoSuchElementException:
             return self.driver.find_element(*PAGE_COUNT_2).text
+
+    def get_job_titles(self):
+        logging.info('Getting job titles.')
+        return [' '.join(element.text.split()).strip() for element in self.job_titles]
 
     def get_recent_searches(self):
         logging.info('Getting recent searches.')

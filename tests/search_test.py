@@ -28,12 +28,10 @@ class TestSearch:
         self.search_page.enter_location(location)
         self.search_page.submit_job_search_by_pressing_enter()
 
-        logging.info('Verifying that the results page displays the correct page number.')
-        expected_page_number = 'Page 1'
-        actual_page_number = self.results_page.get_page_number()
-        logging.info(f'Expected page number: {expected_page_number}')
+        logging.info('Verifying that the results page displays the correct number of jobs.')
+        actual_page_number = self.results_page.get_job_count()
         logging.info(f'Actual page number:   {actual_page_number}')
-        assert expected_page_number in actual_page_number
+        assert actual_page_number.split(' ')[0].isnumeric() and actual_page_number.split(' ')[1] == 'jobs'
 
         logging.info('Verifying that the results page header displays the correct title and location.')
         expected_header = f'{title} jobs in {location}'
@@ -72,19 +70,15 @@ class TestSearch:
             logging.info(f'Actual location: {location}')
             assert 'WA' in location or 'Washington State'.lower() in location.lower()
 
-    # def test_user_can_sort_by_date(self):
-
     def test_user_can_paginate(self):
         for i in range(1, 5):
             page_number = i + 1
             self.results_page.click_pagination_by_page_number(f'{page_number}')
 
-            logging.info('Verifying that the results page displays the correct page number.')
-            expected_page_number = f'Page {page_number}'
-            actual_page_number = self.results_page.get_page_number()
-            logging.info(f'Expected page number: {expected_page_number}')
+            logging.info('Verifying that the results page displays the correct number of jobs.')
+            actual_page_number = self.results_page.get_job_count()
             logging.info(f'Actual page number:   {actual_page_number}')
-            assert expected_page_number in actual_page_number
+            assert actual_page_number.split(' ')[0].isnumeric() and actual_page_number.split(' ')[1] == 'jobs'
 
             logging.info('Verifying that there are correct number of results.')
             expected_number = 15
